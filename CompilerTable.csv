@@ -1,0 +1,41 @@
+"
+$",name,.,module,;,begin,end,const,"""",=,var,:,",",integer,real,char,procedure,:=,(,),+,-,*,/,mod,div,readint,readreal,readchar,readln,writeint,writereal,writechar,writeln,if,then,else,while,do,loop,until,exit,call,|=,<,<=,>,>=,integer-value,real-value
+module-decl,,,module-decl ::= module-heading declarations block name . ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+module-heading,,,module-heading ::= module name ; ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+block,,,,,block ::= begin stmt-list end,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+declarations,,,,,declarations ::= const-decl var-decl procedure-decl ,,declarations ::= const-decl var-decl procedure-decl ,,,declarations ::= const-decl var-decl procedure-decl ,,,,,,declarations ::= const-decl var-decl procedure-decl ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+const-decl,,,,,"const-decl ::= "" ",,const-decl ::= const const-list,,,"const-decl ::= "" ",,,,,,"const-decl ::= "" ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+const-list,const-list ::= name = value ; const-list ,,,,"const-list ::= "" ",,,,,"const-list ::= "" ",,,,,,"const-list ::= "" ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+var-decl,,,,,"var-decl ::= """,,,,,var-decl ::= var var-list ,,,,,,"var-decl ::= """,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+var-list,var-list ::= var-item ; var-list,,,,"var-list ::= """,,,,,,,,,,,"var-list ::= """,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+var-item,var-item ::= name-list : data-type,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+name-list,name-list ::= name more-names ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+more-names,,,,,,,,,,,"more-names ::= "" ","more-names ::= , name-list ",,,,,,,"more-names ::= "" ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+data-type,,,,,,,,,,,,,data-type ::= integer,data-type ::= real ,data-type ::= char,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+procedure-decl,,,,,"procedure-decl ::= "" ",,,,,,,,,,,procedure-decl ::= procedure-heading declarations block name ; procedure-decl ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+procedure-heading,,,,,,,,,,,,,,,,procedure-heading ::= procedure name ; ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+stmt-list,stmt-list ::= statement ; stmt-list ,,,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,"stmt-list ::= """,,,,,,,,,,,,,,,,,,,,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,,"stmt-list ::= """,stmt-list ::= statement ; stmt-list ,,stmt-list ::= statement ; stmt-list ,"stmt-list ::= """,stmt-list ::= statement ; stmt-list ,stmt-list ::= statement ; stmt-list ,,,,,,,
+statement,statement ::= ass-stmt ,,,"statement ::= """,statement ::= block,,,,,,,,,,,,,,,,,,,,,statement ::= read-stmt,statement ::= read-stmt,statement ::= read-stmt,statement ::= read-stmt,statement ::= write-stmt,statement ::= write-stmt,statement ::= write-stmt,statement ::= write-stmt,statement ::= if-stmt,,,statement ::= while-stmt,,statement ::= loop-stmt,,statement ::= exit-stmt,statement ::= call-stmt,,,,,,,
+ass-stmt,ass-stmt ::= name := exp,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+exp,exp ::= term exp-prime,,,,,,,,,,,,,,,,,exp ::= term exp-prime,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,exp ::= term exp-prime,exp ::= term exp-prime
+exp-prime,,,,"exp-prime ::= "" ",,,,,,,,,,,,,,,"exp-prime ::= "" ",exp-prime ::= add-oper term exp-prime ,exp-prime ::= add-oper term exp-prime ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+term,term ::= factor term-prime ,,,,,,,,,,,,,,,,,term ::= factor term-prime ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,term ::= factor term-prime ,term ::= factor term-prime 
+term-prime,,,,"term-prime ::= """,,,,,,, ,,,,,,,,"term-prime ::= "" ","term-prime ::= "" ","term-prime ::= "" ",term-prime ::= mul-oper factor term-prime ,term-prime ::= mul-oper factor term-prime ,term-prime ::= mul-oper factor term-prime ,term-prime ::= mul-oper factor term-prime ,,,,,,,,,,,,,,,,,,,,,,,,
+factor,factor ::= name-value,,,,,,,,,,,,,,,,,factor ::= ( exp ),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,factor ::= name-value,factor ::= name-value
+add-oper,,,,,,,,,,,,,,,,,,,,add-oper ::= + ,add-oper ::= -,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+mul-oper,,,,,,,,,,,,,,,,,,,,,,mul-oper ::= * ,mul-oper ::= /,mul-oper ::= mod,mul-oper ::= div,,,,,,,,,,,,,,,,,,,,,,,,
+read-stmt,,,,,,,,,,,,,,,,,,,,,,,,,,read-stmt ::= readint ( name-list ),read-stmt ::= readreal ( name-list ) ,read-stmt ::= readchar ( name-list ) ,read-stmt ::= readln,,,,,,,,,,,,,,,,,,,,
+write-stmt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,write-stmt ::= writeint ( write-list ) ,write-stmt ::= writereal ( write-list ),write-stmt ::= writechar ( write-list ),write-stmt ::= writeln ,,,,,,,,,,,,,,,,
+write-list,write-list ::= write-item more-write-value,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,write-list ::= write-item more-write-value,write-list ::= write-item more-write-value
+more-write-value,,,,,,,,,,,,"more-write-value ::= , write-list ",,,,,,,"more-write-value ::= "" ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+write-item,write-item ::= name ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,write-item ::= value ,write-item ::= value 
+if-stmt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,if-stmt ::= if condition then stmt-list else-part end,,,,,,,,,,,,,,,
+else-part,,,,,,"else-part ::= """,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,else-part ::= else stmt-list,,,,,,,,,,,,,
+while-stmt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,while-stmt ::= while condition do stmt-list end,,,,,,,,,,,,
+loop-stmt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,loop-stmt ::= loop stmt-list until condition,,,,,,,,,,
+exit-stmt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,exit-stmt ::= exit ,,,,,,,,
+call-stmt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,call-stmt ::= call name,,,,,,,
+condition,condition ::= name-value relational-oper name-value ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,condition ::= name-value relational-oper name-value ,condition ::= name-value relational-oper name-value 
+relational-oper,,,,,,,,,relational-oper ::= = ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,relational-oper ::= |=,relational-oper ::= <,relational-oper ::= <=,relational-oper ::= > ,relational-oper ::= >=,,
+name-value,name-value ::= name,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,name-value ::= value,name-value ::= value
+value,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,value ::= integer-value,value ::= real-value
